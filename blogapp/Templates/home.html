@@ -1,0 +1,75 @@
+{% extends 'main.html' %} 
+{%block title %}Welcome to Mr.Stark's Blog{%endblock title%}
+
+ {% block body %}
+
+<div class="container">
+<!-- Set up your HTML -->
+<div class="owl-carousel">
+  
+  {% for cat in cat %}
+  
+  <div class="card" style="margin-left:10px">
+  
+  <div class="img-container">
+  <img src="/media/{{cat.image}}" >
+  
+  <div class="card-content">
+  
+  <div class="card-title">
+  {{cat.title}}
+  </div>
+
+  <p class="truncate">
+  {{cat.description}}
+  </p>
+  
+   <div class="">
+   <a href="" class = "btn col" style="background: #ee6e73"  > view</a>
+   </div>
+  </div>
+
+  </div>
+  
+  </div>
+  
+  {% endfor %}
+</div>
+
+</div>
+
+
+
+
+
+
+<div class="container">
+
+  <div class="row">
+
+    <div class="col s12">
+
+      {% for p in post %}
+      <div class="row">
+
+        <div class="col s12 m8">
+
+          {{p.content |truncatewords:50| safe}}
+
+          <div class="btmt">
+            <a href="Home/{{p.url}}" class="btn" style="background: #ee6e73" my="10px" >Read More...</a >
+          </div>
+          <div class="col s12 m4">
+          <img src="/media/{{p.image}}" class ="responsive-img" alt="">
+
+          
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock body %}
