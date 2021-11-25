@@ -19,20 +19,17 @@ from django.conf.urls.static import static
 from django.conf import settings
 from froala_editor import views
 
-
+from django.conf.urls import url
+from django.views.static import serve
+from django.conf import settings
 urlpatterns = [
     path('',include('Home.urls')),
     path('admin/', admin.site.urls),
     path('froala_editor/',include('froala_editor.urls')),
     
-    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
+ 
+    url(r'^media/(?P<path>.*)$', serve,{'document_root':  settings.MEDIA_ROOT}), 
     url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
-
-
-
-
-
-
 
 
 
