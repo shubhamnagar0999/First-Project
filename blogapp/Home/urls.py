@@ -19,4 +19,5 @@ from .views import home,post
 urlpatterns = [
     path('',home),
     path('Home/<slug:url>',post),
+    
 ] 
